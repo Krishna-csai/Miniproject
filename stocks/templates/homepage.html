@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Homepage</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <header>
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Search</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Sybols</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/credits'">Credits</button>
+        </header>
+        <hr>
+        <div id="starter">
+            Check the <br><span>Stock Market Prices</span><br>of differnet Indian Countries.<br><br>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Explore Here</button>
+        </div>
+        <div id="nse">
+            To go to the Official NSE India Website.<br><br>
+            <button onclick="window.location.href='https://www.nseindia.com/'">NSE India</button>
+        </div>
+    </body>
+</html>

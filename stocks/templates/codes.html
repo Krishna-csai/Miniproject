@@ -1,0 +1,51 @@
+<html lang='en'>
+    <head>
+        <title>Gainers</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                table = document.querySelector('tbody').innerHTML;
+                table1 = document.querySelector('thead').innerHTML; 
+                fetch('http://127.0.0.1:8000/codesfunction')
+                .then(response =>response.json())
+                .then(data => {
+                    let i = 0;
+                    while(i<1819) {
+                        if(i===0) {
+                            s = Object.keys(data)[i];
+                            p = Object.values(data)[i];
+                            table1 = '<tr><td>'+p+'</td><td>'+s+'</td></tr>';
+                        }
+                        else{
+                            s = Object.keys(data)[i];
+                            p = Object.values(data)[i];
+                            table = table +'<tr><td>'+p+'</td><td>'+s+'</td></tr>';
+                        }
+                        i++;
+                    }
+                    document.querySelector('tbody').innerHTML = table;
+                    document.querySelector('thead').innerHTML = table1;
+                })              
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Search</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/credits'">Credits</button>
+        </header>
+        <hr>
+        <h1 id='searchpageheading'>The list of Symbols of all the Companies is given below.</h1>
+        <table id='codestable'>
+            <thead id='codestablehead'>
+            </thead>
+            <hr>
+            <tbody>
+            </tbody>
+        </table>
+        <h1 id='codestableend'>That's the end of Company Codes list.</h1>
+    </body>
+</html>

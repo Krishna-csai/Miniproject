@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Credits</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <style>
+            #creditspage {
+                color: antiquewhite;
+                margin: 3cm;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Search</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/credits">Credits</button>
+        </header>
+        <hr>
+        <div id='creditspage'>
+        <h1>This is a website created by Krishna Tyagi.</h1>
+        <h2>This website can show the real time prices and some other important information related to stock market Companies of India.</h2>
+        <h3>This website is based on a Python framework named Django. Django is full-stack web development framework based on python and uses python as its backend language.<br></h3>
+        <h3>This website shows data in real time by taking its data from the Official website of NSE India.</h3>
+        <h3>When the user asks for data on this website, the website calls for a python function in the backend which then obtains data from the official website of NSE and then returns an Json file as a response. Then the website fetches that response and converts those Json objects into useful data and then displays it to the user.</h3>
+        <h2>The python library used on this website to get data from NSE website is NSETOOLS.</h2>
+        <a href='https://nsetools.readthedocs.io/en/latest/index.html' >NSETOOLS.</a>
+    </div>
+    </body>
+</html>
