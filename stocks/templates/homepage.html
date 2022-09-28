@@ -3,6 +3,31 @@
         <title>Homepage</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <style>
+            #display {
+                color: antiquewhite;
+                margin-left: 3cm;
+                margin-bottom: 3cm;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                fetch("http://127.0.0.1:8000/gainersfunction1/")
+                .then(response => response.json())
+                .then(data => {
+                    gn =  Object.values(data)[0];
+                    hp = Object.values(data)[3];
+                    document.querySelector("#gainerdisplay").innerHTML = "~~~The top Gaining Company is "+gn+ ', with high price of '+ hp;
+                })
+                fetch("http://127.0.0.1:8000/losersfunction1/")
+                .then(response => response.json())
+                .then(data => {
+                    ls = Object.values(data)[0];
+                    hp = Object.values(data)[3];
+                    document.querySelector("#loserdisplay").innerHTML = "~~~The top Losing Company is" +ls +', with high price of '+ hp;
+                })
+            }) 
+        </script>
     </head>
     <body>
         <header>
@@ -17,6 +42,11 @@
         <div id="starter">
             Check the <br><span>Stock Market Prices</span><br>of differnet Indian Countries.<br><br>
             <button onclick="window.location.href='http://127.0.0.1:8000/search'">Explore Here</button>
+        </div>
+        <div id='display'>
+            <h2 id='gainerdisplay'>The top Gaining Company is </h2>
+            <br>
+            <h2 id='loserdisplay'>The top Losing Company is </h2>
         </div>
         <div id="nse">
             To go to the Official NSE India Website.<br><br>
