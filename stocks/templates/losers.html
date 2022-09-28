@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            #loserstable {
+                color: antiquewhite;
+                font-size: 20px;
+            }
+            #loserstable1, #loserstable2 ,#loserstable3 {
+                color: antiquewhite;
+                margin-left: 3cm;
+                font-size: 20px;
+            }
+        </style>
+        <title>Gainers</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                table1 = document.querySelector('#tbody1').innerHTML;
+                table2 = document.querySelector('#tbody2').innerHTML;
+                table3 = document.querySelector('#tbody3').innerHTML;
+                fetch('http://127.0.0.1:8000/losersfunction1/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table1 = table1 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#ln1').innerHTML = '-> Loser Number 1 is --- '+ gn;
+                    document.querySelector('#tbody1').innerHTML = table1;
+                    })
+                fetch('http://127.0.0.1:8000/losersfunction2/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table2 = table2 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#ln2').innerHTML = '-> Loser Number 2 is --- '+ gn;
+                    document.querySelector('#tbody2').innerHTML = table2;
+                    })
+                fetch('http://127.0.0.1:8000/losersfunction3/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table3 = table3 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#ln3').innerHTML = '-> Loser Number 3 is --- '+ gn;
+                    document.querySelector('#tbody3').innerHTML = table3;
+                    })
+                })
+        </script>
+    </head>
+    <body>
+        <header>
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Search</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/gainers'">Gainers</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/losers'">Losers</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/credits'">Credits</button>
+        </header>
+        <hr>
+        <div id='loserstable'>
+        <h1 id='loserspageheading'>The list of the Loser Companies is listed below.</h1>
+        <h3>This is a list of top losing stocks for the last trading session.</h3>
+        <hr>
+        <h2 id='ln1'>Loser Number 1</h2>
+        <table id='loserstable1'>
+            <hr>
+            <tbody id='tbody1'>
+            </tbody>
+        </table>
+        <hr>
+        <h2 id='ln2'>Loser Number 2</h2>
+        <table id='loserstable2'>
+            <hr>
+            <tbody id='tbody2'>
+            </tbody>
+        </table>
+        <hr>
+        <h2 id='ln3'>Loser Number 3</h2>
+        <table id='loserstable3'>
+            <hr>
+            <tbody id='tbody3'>
+            </tbody>
+        </table>
+        <hr>
+        <h1 id='loserstableend'>That's the end of the Gainers Table.</h1>
+        <div>
+    </body>
+</html>

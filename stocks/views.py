@@ -23,3 +23,40 @@ def search(request):
 
 def credits(request):
     return render(request, 'credits.html')
+
+def gainers(request):
+    return render(request, 'gainers.html')
+
+def gainersfunction1(requets):
+    gainers = nse.get_top_gainers()
+    s = gainers[0]
+    return JsonResponse(s, safe=False)
+
+def gainersfunction2(requets):
+    gainers = nse.get_top_gainers()
+    s = gainers[1]
+    return JsonResponse(s, safe=False)
+
+def gainersfunction3(requets):
+    gainers = nse.get_top_gainers()
+    s = gainers[2]
+    return JsonResponse(s, safe=False)
+
+def losers(request):
+    return render(request, 'losers.html')
+
+
+def losersfunction1(requets):
+    losers = nse.get_top_losers()
+    s = losers[0]
+    return JsonResponse(s, safe=False)
+
+def losersfunction2(requets):
+    losers = nse.get_top_losers()
+    s = losers[1]
+    return JsonResponse(s, safe=False)
+
+def losersfunction3(requets):
+    losers = nse.get_top_losers()
+    s = losers[2]
+    return JsonResponse(s, safe=False)

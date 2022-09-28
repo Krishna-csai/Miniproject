@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            #gainerstable, #gainerstable1, #gainerstable2 ,#gainerstable3 {
+                color: antiquewhite;
+                font-size: 20px;
+            }
+            #gainerstable1, #gainerstable2 ,#gainerstable3 {
+                color: antiquewhite;
+                margin-left: 3cm;
+                font-size: 20px;
+            }
+        </style>
+        <title>Gainers</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                table1 = document.querySelector('#tbody1').innerHTML;
+                table2 = document.querySelector('#tbody2').innerHTML;
+                table3 = document.querySelector('#tbody3').innerHTML;
+                fetch('http://127.0.0.1:8000/gainersfunction1/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table1 = table1 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#gn1').innerHTML = '-> Gainer Number 1 is --- '+ gn;
+                    document.querySelector('#tbody1').innerHTML = table1;
+                    })
+                fetch('http://127.0.0.1:8000/gainersfunction2/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table2 = table2 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#gn2').innerHTML = '-> Gainer Number 2 is --- '+ gn;
+                    document.querySelector('#tbody2').innerHTML = table2;
+                    })
+                fetch('http://127.0.0.1:8000/gainersfunction3/')
+                .then(response => response.json())
+                .then(data => {
+                    let i = 0 ;
+                    while(i<12) {
+                        s = Object.keys(data)[i];
+                        p = Object.values(data)[i];
+                        table3 = table3 +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        i++;
+                    }
+                    gn = Object.values(data)[0];
+                    document.querySelector('#gn3').innerHTML = '-> Gainer Number 3 is --- '+ gn;
+                    document.querySelector('#tbody3').innerHTML = table3;
+                    })
+                })
+        </script>
+    </head>
+    <body>
+        <header>
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Search</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/gainers'">Gainers</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/losers'">Losers</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/credits'">Credits</button>
+        </header>
+        <hr>
+        <div id='gainerstable'>
+        <h1 id='gainerspageheading'>The list of the Gainer Companies is listed below.</h1>
+        <h3>This is a list of top gaining stocks for the last trading session.</h3>
+        <hr>
+        <h2 id='gn1'>Gainer Number 1</h2>
+        <table id='gainerstable1'>
+            <hr>
+            <tbody id='tbody1'>
+            </tbody>
+        </table>
+        <hr>
+        <h2 id='gn2'>Gainer Number 2</h2>
+        <table id='gainerstable2'>
+            <hr>
+            <tbody id='tbody2'>
+            </tbody>
+        </table>
+        <hr>
+        <h2 id='gn3'>Gainer Number 3</h2>
+        <table id='gainerstable3'>
+            <hr>
+            <tbody id='tbody3'>
+            </tbody>
+        </table>
+        <hr>
+        <h1 id='gainerstableend'>That's the end of the Gainers Table.</h1>
+        <div>
+    </body>
+</html>
