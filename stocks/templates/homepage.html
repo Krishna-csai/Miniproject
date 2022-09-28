@@ -17,14 +17,14 @@
                 .then(data => {
                     gn =  Object.values(data)[0];
                     hp = Object.values(data)[3];
-                    document.querySelector("#gainerdisplay").innerHTML = "~~~The top Gaining Company is "+gn+ ', with high price of '+ hp;
+                    document.querySelector("#gainerdisplay").innerHTML = "~~~The top Gaining Company is "+gn+ ', with high price of '+ hp+'.';
                 })
                 fetch("http://127.0.0.1:8000/losersfunction1/")
                 .then(response => response.json())
                 .then(data => {
                     ls = Object.values(data)[0];
                     hp = Object.values(data)[3];
-                    document.querySelector("#loserdisplay").innerHTML = "~~~The top Losing Company is" +ls +', with high price of '+ hp;
+                    document.querySelector("#loserdisplay").innerHTML = "~~~The top Losing Company is " +ls +', with high price of '+ hp+'.';
                 })
             }) 
         </script>
