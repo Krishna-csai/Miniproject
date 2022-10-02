@@ -4,10 +4,21 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <style>
-            #display {
-                color: antiquewhite;
+            #displaytable {
+                margin-top: 1cm;
                 margin-left: 3cm;
                 margin-bottom: 3cm;
+            }
+            #topgaining, #toplosing {
+                border: solid orange;
+                border-radius: 50px;
+                font-size:18px;
+                background-color: orange;
+                text-align: center;
+                font-style: italic;
+                font-weight: bold;
+                width: 7cm;
+                height: 1.5cm;
             }
         </style>
         <script>
@@ -17,14 +28,14 @@
                 .then(data => {
                     gn =  Object.values(data)[0];
                     hp = Object.values(data)[3];
-                    document.querySelector("#gainerdisplay").innerHTML = "~~~The top Gaining Company is "+gn+ ', with high price of '+ hp+'.';
+                    document.querySelector("#topgaining").innerHTML = 'Top Gaining Company is<br>'+gn+ ',<br> with high price of '+ hp+'.';
                 })
                 fetch("http://127.0.0.1:8000/losersfunction1/")
                 .then(response => response.json())
                 .then(data => {
                     ls = Object.values(data)[0];
                     hp = Object.values(data)[3];
-                    document.querySelector("#loserdisplay").innerHTML = "~~~The top Losing Company is " +ls +', with high price of '+ hp+'.';
+                    document.querySelector("#toplosing").innerHTML = 'Top Losing Company is<br>'+ ls +',<br> with high price of '+ hp+'.';
                 })
             }) 
         </script>
@@ -39,15 +50,16 @@
             <button onclick="window.location.href='http://127.0.0.1:8000/credits'">Credits</button>
         </header>
         <hr>
-        <div id="starter">
+        <div id="starter" style='margin-bottom:0cm;'>
             Check the <br><span>Stock Market Prices</span><br>of differnet Indian Countries.<br><br>
             <button onclick="window.location.href='http://127.0.0.1:8000/search'">Explore Here</button>
         </div>
-        <div id='display'>
-            <h2 id='gainerdisplay'>The top Gaining Company is </h2>
-            <br>
-            <h2 id='loserdisplay'>The top Losing Company is </h2>
-        </div>
+        <table id='displaytable'>
+            <tr>
+                <td id='topgaining'></td>
+                <td id='toplosing'></td>
+            </tr>
+        </table>
         <div id="nse">
             To go to the Official NSE India Website.<br><br>
             <button onclick="window.location.href='https://www.nseindia.com/'">NSE India</button>
