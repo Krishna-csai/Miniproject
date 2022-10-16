@@ -1,151 +1,147 @@
-body {
-    background-image: url('https://wallpaperaccess.com/full/1393728.jpg');
-    background-size:cover;
-}
 header {
-    color: antiquewhite;
-    padding-left: 3cm;
-    padding-top: 0.5cm;
-    padding-bottom: 0.5cm;
-    display:inline-flex;
-    column-gap: 1cm;
+  color: antiquewhite;
+  padding-left: 3cm;
+  padding-top: 0.5cm;
+  padding-bottom: 0.5cm;
+  display: inline-flex;
+  column-gap: 1cm;
 }
 header button {
-    color: antiquewhite;
-    font-style: italic;
-    font-size: 20px;
-    border-style: none;
-    background-color: transparent;
-    border-radius: 34px;
-    width: 3cm;
-    height:1cm;
+  color: antiquewhite;
+  font-style: italic;
+  font-size: 20px;
+  border-style: none;
+  background-color: transparent;
+  border-radius: 34px;
+  width: 3cm;
+  height: 1cm;
 }
 span {
-    font-size: 70px;
-    color: orange;
+  font-size: 70px;
+  color: orange;
 }
 button:hover {
-    background-color: orange;
+  background-color: orange;
 }
 #starter {
-    color: antiquewhite;
-    font-size: 50px;
-    font-style: italic;
-    font-weight: bold;
-    margin: 3cm;
-
+  color: antiquewhite;
+  font-size: 50px;
+  font-style: italic;
+  font-weight: bold;
+  margin: 3cm;
 }
 #starter button {
-    font-size: 30px;
-    border-style: none;
-    border-radius: 34px;
-    background-color: orange;
-    width: 7cm;
-    height: 1.5cm;
+  font-size: 30px;
+  border-style: none;
+  border-radius: 34px;
+  background-color: orange;
+  width: 7cm;
+  height: 1.5cm;
 }
 #starter button:hover {
-    background-color: orangered;
+  background-color: orangered;
 }
 #nse {
-    font-size: 20px;
-    color: antiquewhite;
-    margin-left: 3cm;
-    margin-bottom: 2cm;
+  font-size: 20px;
+  color: antiquewhite;
+  margin-left: 3cm;
+  margin-bottom: 2cm;
 }
-#nse button{
-    font-style: italic;
-    font-size: 20px;
-    border-style: none;
-    background-color: orange;
-    border-radius: 34px;
-    width: 3cm;
-    height:1cm;
+#nse button {
+  font-style: italic;
+  font-size: 20px;
+  border-style: none;
+  background-color: orange;
+  border-radius: 34px;
+  width: 3cm;
+  height: 1cm;
 }
 #nse button:hover {
-    background-color: orangered;
+  background-color: orangered;
 }
-#codestable  {
-    color: antiquewhite;
-    border-spacing: 2cm;
+#codestable {
+  color: antiquewhite;
+  border-spacing: 2cm;
 }
 #codestablehead {
-    border-spacing: 2cm;
-    color: antiquewhite;
-    font-size: 30px;
-    margin-bottom: 0.5cm;
+  border-spacing: 2cm;
+  color: antiquewhite;
+  font-size: 30px;
+  margin-bottom: 0.5cm;
 }
 #codestableend {
-    color: antiquewhite;
-    margin-left: 2cm;
-    margin-bottom: 2cm;
+  color: antiquewhite;
+  margin-left: 2cm;
+  margin-bottom: 2cm;
 }
 #searchcompany {
-    text-align: center;
-    margin-left: 3cm;
-    font-size: 20px;
-    width: 6cm;
-    align-self: center;
-    height: 1.5cm;
-    border-radius: 34px;
+  text-align: center;
+  margin-left: 3cm;
+  font-size: 20px;
+  width: 6cm;
+  align-self: center;
+  height: 1.5cm;
+  border-radius: 34px;
 }
 #searchbutton {
-    color: antiquewhite;
-    width:3cm;
-    height:1.5cm;
-    border-radius: 24px;
-    border-style: none;
-    background-color: transparent;
-    font-size: 20px;
+  color: antiquewhite;
+  width: 3cm;
+  height: 1.5cm;
+  border-radius: 24px;
+  border-style: none;
+  background-color: transparent;
+  font-size: 20px;
 }
 #searchbutton:hover {
-    background-color: orange;
+  background-color: orange;
 }
 #searchtable {
-    margin-left: 3cm;
-    color: antiquewhite;
-    font-size: 25px;
-    align:center;
+  margin-left: 3cm;
+  color: antiquewhite;
+  font-size: 25px;
+  align: center;
 }
-#propertyresult , #searchjsondiv {
-    color: antiquewhite;
-    margin-left: 3cm;
-    font-size: 20px;
+#propertyresult,
+#searchjsondiv {
+  color: antiquewhite;
+  margin-left: 3cm;
+  font-size: 20px;
 }
 #property {
-    border-radius: 24px;
-    text-align: center;
-    width: 4cm;
-    height:1cm;
+  border-radius: 24px;
+  text-align: center;
+  width: 4cm;
+  height: 1cm;
 }
 #propertysearch {
-    color: antiquewhite;
-    background-color: transparent;
-    border-style: none ;
-    border-radius: 24px;
-    height:1cm;
+  color: antiquewhite;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 24px;
+  height: 1cm;
 }
 #propertysearch:hover {
-    background-color: orange;
+  background-color: orange;
 }
 #searchpageheading {
-    color:antiquewhite;
-    margin-left: 2cm;
+  color: antiquewhite;
+  margin-left: 2cm;
 }
 #searchjson {
-    color: antiquewhite;
-    font-size: 20px;
-    border-radius: 34px;
-    width: 3cm;
-    height: 1cm;
-    border-style: none;
-    background-color: transparent;
+  color: antiquewhite;
+  font-size: 20px;
+  border-radius: 34px;
+  width: 3cm;
+  height: 1cm;
+  border-style: none;
+  background-color: transparent;
 }
 #searchjson:hover {
-    background-color: orange;
+  background-color: orange;
 }
 
 #gainerstable {
-    color: antiquewhite;
-    margin-left: 3cm;
-    font-size: 20px;
+  color: antiquewhite;
+  margin-left: 3cm;
+  font-size: 20px;
 }
