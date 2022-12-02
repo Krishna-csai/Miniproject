@@ -1,121 +1,158 @@
 <html>
-  <head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelector("#searchbutton").onclick = function () {
-          searchword = document.querySelector("#searchcompany").value;
-          table = "";
-          fetch(`http://127.0.0.1:8000/search/${searchword}`)
-            .then((response) => response.json())
-            .then((data) => {
-              if (data != null) {
-                for (let i = 1; i <= 67; i++) {
-                  s = Object.keys(data)[i].toUpperCase();
-                  p = Object.values(data)[i];
-                  table =
-                    table + "<tr><td>" + s + "</td><td>" + p + "</td></tr>";
-                }
-                document.querySelector("tbody").innerHTML = table;
-              } else {
-                document.querySelector("thead").innerHTML =
-                  "No data is available for this Company Code";
-              }
-            });
-          return false;
-        };
-        document.querySelector("#propertysearch").onclick = function () {
-          searchproperty = document.querySelector("#property").value;
-          z = searchproperty.toUpperCase();
-          fetch(`http://127.0.0.1:8000/search/${searchword}/`)
-            .then((response) => response.json())
-            .then((data) => {
-              let equal = 0;
-              for (let i = 1; i <= 67; i++) {
-                s = Object.keys(data)[i].toUpperCase();
-                if (z === s) {
-                  equal = i;
-                }
-              }
-              if (equal === 0) {
-                document.querySelector("#result").innerHTML =
-                  "Invalid Property";
-              } else {
-                v = Object.values(data)[equal];
-                if (v != null) {
-                  document.querySelector("#result").innerHTML = v;
-                } else {
-                  document.querySelector("#result").innerHTML = "null";
-                }
-              }
-            });
-        };
-        document.querySelector("#searchjson").onclick = function () {
-          searchword = document.querySelector("#searchcompany").value;
-          if (searchword === "") {
-            document.querySelector("#searchjsonresult").innerHTML =
-              "Please enter the company code first.";
-          } else {
-            window.location.href = `http://127.0.0.1:8000/search/${searchword}/`;
-          }
-        };
-      });
-    </script>
-  </head>
-  <body>
-    <header>
-      <button onclick="window.location.href='http://127.0.0.1:8000/'">
-        Home
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/search'">
-        Search
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/gainers'">
-        Gainers
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/losers'">
-        Losers
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/codes'">
-        Symbols
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/credits'">
-        Credits
-      </button>
-    </header>
-    <hr />
-    <input id="searchcompany" placeholder="Enter Company Symbol" type="text" />
-    <input id="searchbutton" type="submit" placeholder="Search" />
-    <hr />
-    <div id="propertyresult">
-      <h2>If you want a specific property enter here:</h2>
-      <input id="property" name="property" type="text" placeholder="property" />
-      <input id="propertysearch" type="submit" value="View property" />
-      <p>Property details are:</p>
-      <p id="result">--</p>
-    </div>
-    <div id="table">
-      <table id="searchtable">
-        <thead>
-          <tr>
-            <td>Property</td>
-            <td>Value</td>
-          </tr>
-        </thead>
-        <hr />
-        <tbody></tbody>
-      </table>
-    </div>
-    <hr />
-    <hr />
-    <div id="searchjsondiv" style="margin-left: 3cm">
-      <h3 id="searchjsonresult" style="color: antiquewhite">
-        To see the Json file of this page Click Below.
-      </h3>
-      <button type="submit" palceholder="Json file" id="searchjson">
-        Json file
-      </button>
-    </div>
-  </body>
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'styles.css' %}" />
+		<style>
+			body {
+				background-image: url("https://img.freepik.com/premium-photo/stock-market-forex-trading-graph-futuristic_73426-191.jpg?w=900");
+			}
+		</style>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				document.querySelector("#searchbutton").onclick = function () {
+					searchword = document.querySelector("#searchcompany").value;
+					table = "";
+					fetch(`http://127.0.0.1:8000/search/${searchword}`)
+						.then((response) => response.json())
+						.then((data) => {
+							if (data != null) {
+								for (let i = 1; i <= 67; i++) {
+									s = Object.keys(data)[i].toUpperCase();
+									p = Object.values(data)[i];
+									table =
+										table +
+										"<tr><td>" +
+										s +
+										"</td><td>" +
+										p +
+										"</td></tr>";
+								}
+								document.querySelector("tbody").innerHTML =
+									table;
+							} else {
+								document.querySelector("thead").innerHTML =
+									"No data is available for this Company Code";
+							}
+						});
+					return false;
+				};
+				document.querySelector("#propertysearch").onclick =
+					function () {
+						searchproperty =
+							document.querySelector("#property").value;
+						z = searchproperty.toUpperCase();
+						fetch(`http://127.0.0.1:8000/search/${searchword}/`)
+							.then((response) => response.json())
+							.then((data) => {
+								let equal = 0;
+								for (let i = 1; i <= 67; i++) {
+									s = Object.keys(data)[i].toUpperCase();
+									if (z === s) {
+										equal = i;
+									}
+								}
+								if (equal === 0) {
+									document.querySelector(
+										"#result"
+									).innerHTML = "Invalid Property";
+								} else {
+									v = Object.values(data)[equal];
+									if (v != null) {
+										document.querySelector(
+											"#result"
+										).innerHTML = v;
+									} else {
+										document.querySelector(
+											"#result"
+										).innerHTML = "null";
+									}
+								}
+							});
+					};
+				document.querySelector("#searchjson").onclick = function () {
+					searchword = document.querySelector("#searchcompany").value;
+					if (searchword === "") {
+						document.querySelector("#searchjsonresult").innerHTML =
+							"Please enter the company code first.";
+					} else {
+						window.location.href = `http://127.0.0.1:8000/search/${searchword}/`;
+					}
+				};
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+			<button onclick="window.location.href='http://127.0.0.1:8000/'">
+				Home
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/search'"
+			>
+				Search
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/gainers'"
+			>
+				Gainers
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/losers'"
+			>
+				Losers
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/codes'"
+			>
+				Symbols
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/credits'"
+			>
+				Credits
+			</button>
+		</header>
+		<hr />
+		<input
+			id="searchcompany"
+			placeholder="Enter Company Symbol"
+			type="text"
+		/>
+		<input id="searchbutton" type="submit" placeholder="Search" />
+		<hr />
+		<div id="propertyresult">
+			<h2>If you want a specific property enter here:</h2>
+			<input
+				id="property"
+				name="property"
+				type="text"
+				placeholder="property"
+			/>
+			<input id="propertysearch" type="submit" value="View property" />
+			<p>Property details are:</p>
+			<p id="result">--</p>
+		</div>
+		<div id="table">
+			<table id="searchtable">
+				<thead>
+					<tr>
+						<td>Property</td>
+						<td>Value</td>
+					</tr>
+				</thead>
+				<hr />
+				<tbody></tbody>
+			</table>
+		</div>
+		<hr />
+		<hr />
+		<div id="searchjsondiv" style="margin-left: 3cm">
+			<h3 id="searchjsonresult" style="color: antiquewhite">
+				To see the Json file of this page Click Below.
+			</h3>
+			<button type="submit" palceholder="Json file" id="searchjson">
+				Json file
+			</button>
+		</div>
+	</body>
 </html>

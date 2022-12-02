@@ -1,110 +1,125 @@
 <html>
-  <head>
-    <title>Homepage</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <style>
-      @keyframes hover {
-        0% {
-          backgorund-color: transparent;
-          font-size: 20px;
-        }
-        100% {
-          background-color: yellow;
-          font-size: 30px;
-        }
-      }
-      button:hover {
-        animation: hover 3s infinite;
-      }
-      #displaytable {
-        margin-top: 1cm;
-        margin-left: 3cm;
-        margin-bottom: 3cm;
-      }
-      #topgaining,
-      #toplosing {
-        border: solid orange;
-        border-radius: 50px;
-        padding: 15px;
-        font-size: 18px;
-        background-color: orange;
-        text-align: center;
-        font-style: italic;
-        font-weight: bold;
-        width: 7cm;
-        height: 1.5cm;
-      }
-    </style>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("http://127.0.0.1:8000/gainersfunction1/")
-          .then((response) => response.json())
-          .then((data) => {
-            gn = Object.values(data)[0];
-            hp = Object.values(data)[3];
-            document.querySelector("#topgaining").innerHTML =
-              "Top Gaining Company is<br>" +
-              gn +
-              ",<br> with high price of " +
-              hp +
-              ".";
-          });
-        fetch("http://127.0.0.1:8000/losersfunction1/")
-          .then((response) => response.json())
-          .then((data) => {
-            ls = Object.values(data)[0];
-            hp = Object.values(data)[3];
-            document.querySelector("#toplosing").innerHTML =
-              "Top Losing Company is<br>" +
-              ls +
-              ",<br> with high price of " +
-              hp +
-              ".";
-          });
-      });
-    </script>
-  </head>
-  <body>
-    <header>
-      <button onclick="window.location.href='http://127.0.0.1:8000/'">
-        Home
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/search'">
-        Search
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/gainers'">
-        Gainers
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/losers'">
-        Losers
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/codes'">
-        Symbols
-      </button>
-      <button onclick="window.location.href='http://127.0.0.1:8000/credits'">
-        Credits
-      </button>
-    </header>
-    <hr />
-    <div id="starter" style="margin-bottom: 0cm">
-      Check the <br /><span>Stock Market Prices</span><br />of differnet Indian
-      Countries.<br /><br />
-      <button onclick="window.location.href='http://127.0.0.1:8000/search'">
-        Explore Here
-      </button>
-    </div>
-    <table id="displaytable">
-      <tr>
-        <td id="topgaining"></td>
-        <td id="toplosing"></td>
-      </tr>
-    </table>
-    <div id="nse">
-      To go to the Official NSE India Website.<br /><br />
-      <button onclick="window.location.href='https://www.nseindia.com/'">
-        NSE India
-      </button>
-    </div>
-  </body>
+	<head>
+		<title>Homepage</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'styles.css' %}" />
+		<style>
+			@keyframes hover {
+				0% {
+					backgorund-color: transparent;
+					font-size: 20px;
+				}
+				100% {
+					background-color: yellow;
+					font-size: 30px;
+				}
+			}
+			body {
+				background-image: url("https://img.freepik.com/premium-photo/stock-market-forex-trading-graph-futuristic_73426-191.jpg?w=900");
+			}
+			button:hover {
+				animation: hover 3s infinite;
+			}
+			#displaytable {
+				margin-top: 1cm;
+				margin-left: 3cm;
+				margin-bottom: 3cm;
+			}
+			#topgaining,
+			#toplosing {
+				border: solid orange;
+				border-radius: 50px;
+				padding: 15px;
+				font-size: 18px;
+				background-color: orange;
+				text-align: center;
+				font-style: italic;
+				font-weight: bold;
+				width: 7cm;
+				height: 1.5cm;
+			}
+		</style>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				fetch("http://127.0.0.1:8000/gainersfunction1/")
+					.then((response) => response.json())
+					.then((data) => {
+						gn = Object.values(data)[0];
+						hp = Object.values(data)[3];
+						document.querySelector("#topgaining").innerHTML =
+							"Top Gaining Company is<br>" +
+							gn +
+							",<br> with high price of " +
+							hp +
+							".";
+					});
+				fetch("http://127.0.0.1:8000/losersfunction1/")
+					.then((response) => response.json())
+					.then((data) => {
+						ls = Object.values(data)[0];
+						hp = Object.values(data)[3];
+						document.querySelector("#toplosing").innerHTML =
+							"Top Losing Company is<br>" +
+							ls +
+							",<br> with high price of " +
+							hp +
+							".";
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<header>
+			<button onclick="window.location.href='http://127.0.0.1:8000/'">
+				Home
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/search'"
+			>
+				Search
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/gainers'"
+			>
+				Gainers
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/losers'"
+			>
+				Losers
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/codes'"
+			>
+				Symbols
+			</button>
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/credits'"
+			>
+				Credits
+			</button>
+		</header>
+		<hr />
+		<div id="starter" style="margin-bottom: 0cm">
+			Check the <br /><span>Stock Market Prices</span><br />of differnet
+			Indian Countries.<br /><br />
+			<button
+				onclick="window.location.href='http://127.0.0.1:8000/search'"
+			>
+				Explore Here
+			</button>
+		</div>
+		<table id="displaytable">
+			<tr>
+				<td id="topgaining"></td>
+				<td id="toplosing"></td>
+			</tr>
+		</table>
+		<div id="nse">
+			To go to the Official NSE India Website.<br /><br />
+			<button onclick="window.location.href='https://www.nseindia.com/'">
+				NSE India
+			</button>
+		</div>
+	</body>
 </html>
