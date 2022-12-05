@@ -99,7 +99,7 @@ button:hover {
 	margin-left: 3cm;
 	color: antiquewhite;
 	font-size: 25px;
-	align: center;
+	align-self: center;
 }
 #propertyresult,
 #searchjsondiv {
