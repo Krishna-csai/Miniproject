@@ -15,4 +15,5 @@ urlpatterns = [
     path('losersfunction1/', views.losersfunction1, name='losersfunction1'),
     path('losersfunction2/', views.losersfunction2, name='losersfunction2'),
     path('losersfunction3/', views.losersfunction3, name='losersfunction3'),
+    path('predictions/', views.predictions, name='prediction'),
 ]
