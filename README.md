@@ -14,7 +14,7 @@ How to Run this project:<br>
 Credits:
     The python Library used on this website to get data from the NSE website is NSETOOLS. You can check their website if you want to check out about them, the link is "https://nsetools.readthedocs.io/en/latest/index.html". 
     
- Libraries Required:
+ Libraries Required:<br>
  Matplotlib<br>
  Numpy<br>
  Scikit Leanr<br>
