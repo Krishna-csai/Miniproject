@@ -14,6 +14,4 @@ How to Run this project:<br>
 Credits:
     The python Library used on this website to get data from the NSE website is NSETOOLS. You can check their website if you want to check out about them, the link is "https://nsetools.readthedocs.io/en/latest/index.html". 
 
-Using the website:
-    You can check out the overall website in the video upploaded on youtube by clicking on the following link, "https://youtu.be/OyPYm4qE9rw".
 
