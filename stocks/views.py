@@ -47,7 +47,6 @@ def gainersfunction3(request):
 def losers(request):
     return render(request, 'losers.html')
 
-
 def losersfunction1(request):
     losers = nse.get_top_losers()
     s = losers[0]
