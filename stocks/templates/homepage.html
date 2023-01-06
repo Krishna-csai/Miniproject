@@ -14,9 +14,6 @@
 					font-size: 30px;
 				}
 			}
-			body {
-				background-image: url("https://wallpaperaccess.com/full/1393721.jpg");
-			}
 			button:hover {
 				animation: hover 3s infinite;
 			}
@@ -28,7 +25,7 @@
 			#topgaining,
 			#toplosing {
 				border: rgb(246, 96, 37);
-				border-radius: 50px;
+				border-radius: 10px;
 				padding: 15px;
 				font-size: 18px;
 				background-color: rgb(246, 96, 37);
@@ -37,6 +34,8 @@
 				font-weight: bold;
 				width: 7cm;
 				height: 1.5cm;
+				margin: auto;
+				margin-top: 30px;
 			}
 		</style>
 		<script>
@@ -105,7 +104,7 @@
 			</button>
 		</header>
 		<hr />
-		<div id="starter" style="margin-bottom: 0cm">
+		<div id="starter">
 			Check the <br /><span>Stock Market Prices</span><br />of differnet
 			Indian Countries.<br /><br />
 			<button
@@ -114,12 +113,10 @@
 				Explore Here
 			</button>
 		</div>
-		<table id="displaytable">
-			<tr>
-				<td id="topgaining"></td>
-				<td id="toplosing"></td>
-			</tr>
-		</table>
+
+		<div id="topgaining"></div>
+		<div id="toplosing"></div>
+
 		<div id="nse">
 			To go to the Official NSE India Website.<br /><br />
 			<button onclick="window.location.href='https://www.nseindia.com/'">

@@ -5,6 +5,7 @@ header {
 	padding-bottom: 0.5cm;
 	display: inline-flex;
 	column-gap: 1cm;
+	background-color: rgb(187, 198, 212);
 }
 header button {
 	color: antiquewhite;
@@ -33,7 +34,7 @@ button:hover {
 #starter button {
 	font-size: 30px;
 	border-style: none;
-	border-radius: 34px;
+	border-radius: 10px;
 	background-color: rgb(246, 96, 37);
 	width: 7cm;
 	height: 1.5cm;
