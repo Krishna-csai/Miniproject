@@ -2,7 +2,7 @@ Stock Market Prices Prediction
 
 Description:
     This website can be used to get prices and make price predictions about the Indian Stock Market Companies. It uses a framework called Django, which is based on Python programming language.<br>
-    And for predicting the stock market prices it uses Simple linear Regression on the alpha_vantage API data to develop a Machine Learning Model using Scikit Learn Library and then by using that Model it predicts the next price and shows that price through a graph using Matplotlib library in Python. <br>
+    And for predicting the stock market prices it uses polynomial regression on the alpha_vantage API data to develop a Machine Learning Model using Scikit Learn Library and then by using that Model it predicts the next price and shows that price through a graph using Matplotlib library in Python. <br>
     This website uses a Python library in order to get all these information in the backend.<br>
     This Python library, when called gathers data from the Official NSE India website and then converts those data into Json file and sends that Json file back as response to the website. Then the website fecthes that Json file and converts it into usefull Information.<br>
     The biggest challange of this program was that there are no free API's for this kind of stuff which are free and provides data in real time. That's why i had to use this library in order to get that data.<br>
