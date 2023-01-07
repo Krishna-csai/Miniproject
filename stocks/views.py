@@ -9,6 +9,18 @@ import requests
 def home(request):
     return render(request, 'homepage.html')
 
+def about(request):
+    return render(request, 'about.html')
+
+def members(request):
+    return render(request, 'members.html')
+
+def contactus(request):
+    return render(request, 'contact.html')
+
+def testimonial(request):
+    return render(request, 'testimonial.html')
+
 def codes(request):
     return render(request, 'codes.html')
 
@@ -22,9 +34,6 @@ def searchpage(request, code):
 
 def search(request):
     return render(request, 'search.html')
-
-def credits(request):
-    return render(request, 'credits.html')
 
 def gainers(request):
     return render(request, 'gainers.html')
@@ -109,16 +118,14 @@ def predictions(request):
             print('Model Created Successfully...')
             print('The Intercept is:', regressor.intercept_)
     
-            #making predictions using the model
+            # making predictions using the model
             predictions = regressor.predict(poly_predict)
+            new_prediction_for_y = float(predictions)
+            print(new_prediction_for_y)
             print('The Predicted Value is:',predictions)
             ynew1 = np.append(x, [101])
             ynew = np.array(ynew1).reshape((-1,1))
             predicted = np.append(y, [predictions])
-    
-            # testing the effectiveness of the model using rmse value 
-            y_pred = regressor.predict(poly_feature1)
-            print('The RMSE Value of Model is: (Should be less than 1 for the Model to be Effective)', np.sqrt(metrics.mean_squared_error(y_test, y_pred))) # if value is less than 1 then model can be used but we preffer a value under 0.8
     
             # creating array to store all the predicted values
             predicted_y = regressor.predict(poly_feature1)
@@ -134,16 +141,19 @@ def predictions(request):
             plt.grid()
             plt.show()
             
-            #check wheter the price will increase or decrease
-            difference = predictions - latest_price
-            if difference > 0 :
-                return render(request, 'up.html')
-            
-            else: 
-                return render(request, 'down.html')
             
         except:
             return HttpResponse("The given API does not have data for the following Company.")
+            
+            #check wheter the price will increase or decrease
+            
+        difference = predictions - latest_price
+        if difference > 0 :
+            return render(request, 'up.html', {"prediction": new_prediction_for_y})
+            
+        else: 
+            return render(request, 'down.html', {"prediction": new_prediction_for_y})
+        
     
     else:
         return render(request, 'predict.html')
