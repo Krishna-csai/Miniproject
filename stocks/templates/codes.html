@@ -70,43 +70,6 @@
 						document.querySelector("tbody").innerHTML = table;
 						document.querySelector("thead").innerHTML = table1;
 					});
-				document.querySelector("#companysearch").onclick = function () {
-					company = document.querySelector("#company").value;
-					if (company === "") {
-						document.querySelector("#result").innerHTML =
-							"Enter a valid Company name.";
-					} else {
-						name = company.toUpperCase();
-						fetch("http://127.0.0.1:8000/codesfunction")
-							.then((response) => response.json())
-							.then((data) => {
-								let equal = 0;
-								for (let i = 1; i <= 67; i++) {
-									s = Object.values(data)[i].toUpperCase();
-									if (name === s) {
-										equal = i;
-									}
-								}
-								p = Object.keys(data)[equal];
-								if (equal === 0) {
-									document.querySelector(
-										"#result"
-									).innerHTML = name + "    " + p;
-								} else {
-									v = Object.keys(data)[equal];
-									if (v != null) {
-										document.querySelector(
-											"#result"
-										).innerHTML = v;
-									} else {
-										document.querySelector(
-											"#result"
-										).innerHTML = "null";
-									}
-								}
-							});
-					}
-				};
 			});
 		</script>
 	</head>
@@ -208,21 +171,6 @@
 		>
 			The list of Symbols of all the Companies is given below.
 		</h1>
-		<div
-			id="symbolresult"
-			class="section-title position-relative text-center mx-auto mb-5 pb-3"
-		>
-			<h2>Enter the Company name to search the symbol:</h2>
-			<input
-				id="company"
-				name="company"
-				type="text"
-				placeholder="Company Name"
-			/>
-			<input id="companysearch" type="submit" value="View symbol" />
-			<p>The symbol is:</p>
-			<p id="result">--</p>
-		</div>
 		<div>
 			<table
 				id="codestable"
