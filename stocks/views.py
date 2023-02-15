@@ -130,7 +130,6 @@ def predictions(request):
             # creating array to store all the predicted values
             predicted_y = regressor.predict(poly_feature1)
             y_pred_1 = predicted_y
-    
             #plotting the graph to show the values
             plt.plot(x, y_pred_1)
             plt.plot(ynew, predicted)
@@ -141,18 +140,19 @@ def predictions(request):
             plt.grid()
             plt.show()
             
+            difference = predictions - latest_price
+            if difference > 0 :
+                return render(request, 'up.html', {"prediction": new_prediction_for_y})
+            
+            else: 
+                return render(request, 'down.html', {"prediction": new_prediction_for_y})
             
         except:
             return HttpResponse("The given API does not have data for the following Company.")
             
             #check wheter the price will increase or decrease
             
-        difference = predictions - latest_price
-        if difference > 0 :
-            return render(request, 'up.html', {"prediction": new_prediction_for_y})
-            
-        else: 
-            return render(request, 'down.html', {"prediction": new_prediction_for_y})
+        
         
     
     else:
